@@ -17,7 +17,7 @@ Build an app that has the following functionality:
 For the toasts notifications, use the [react-toastify](https://github.com/fkhadra/react-toastify) library.
 
 ### Details
-* Submitting a new todos should require a submit button. 
+* Submitting a new todos should not require a submit button. 
 * You will only have one state and that state will live in App.
 * Every todo item that is added will be its own TodoItem component.
 * TodoItem needs to implement lifecycle methods to fire the created/deleted notification.
