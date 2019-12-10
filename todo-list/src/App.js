@@ -33,26 +33,6 @@ class App extends Component {
       })
     };
 
-
-    // this.delete = (e) => {
-    //   e.preventDefault();
-    //   let newArr = [];
-    //   for (let i of this.state.allToDos) {
-    //     newArr.push(i);
-    //   }
-
-    //   for (let i = 0; i < newArr.length; i++) {
-    //     if (newArr[i].toDo === event.target.id) {
-    //       console.log("hi")
-    //       newArr.splice(i, 1)
-    //     }
-    //   }
-
-    //   this.setState({
-    //     allToDos: newArr
-    //   })
-
-    // }
   }
 
 
