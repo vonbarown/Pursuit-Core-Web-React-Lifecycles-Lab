@@ -4,6 +4,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import './App.css';
 import TodoForm from './components/todoForm';
+import TodoItem from './components/todoItem';
+import TodoList from './components/todoList'
 
 class App extends Component {
   constructor() {
@@ -18,7 +20,7 @@ class App extends Component {
     this.handleSubmit = (e) => {
       e.preventDefault();
       const { list,todoItem} = this.state;
-      const newItem =  todoItem;
+      const newItem =  {todoItem};
       this.setState({
         list: [...list, newItem],
       });
@@ -40,6 +42,17 @@ class App extends Component {
   
   render() {
     console.log(this.state);
+
+    const {list} =this.state
+
+    const listItems = list.map(el => {
+      return (
+        <TodoItem
+          key={el.todoItem}
+          todo = {el.todoItem}
+        />
+      );
+    });
     
     return (
       <div className="App">
@@ -52,6 +65,11 @@ class App extends Component {
           handleSubmit={this.handleSubmit}
           handleNewTodo = {this.handleNewTodo}
         />
+
+        <TodoList
+         listItems = {listItems}
+        />
+        
       </div>
     );
   }

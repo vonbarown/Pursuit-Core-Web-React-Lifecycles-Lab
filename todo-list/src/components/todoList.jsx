@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import TodoItem from './todoItem'
-import TodoForm from './todoForm'
+
 
 class List extends Component {
     constructor() {
@@ -14,7 +13,7 @@ class List extends Component {
     render() {
         return (
             <ul>
-                <TodoItem />
+                {this.props.listItems}
             </ul>
         )
     }
