@@ -4,7 +4,7 @@ const TodoForm = (props) => {
 
     return (
         <form onSubmit={props.handleSubmit}>
-            <input type="text" onChange={props.handleNewTodo} />
+            <input type="text" onChange={props.handleNewTodo} placeholder='Enter a Todo' />
         </form>
     )
 
