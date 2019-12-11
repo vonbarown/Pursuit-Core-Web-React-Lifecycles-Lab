@@ -7,9 +7,6 @@ class TodoItem extends React.Component {
         super(props)
 
         console.log('constructor hit');
-
-
-
     }
     componentDidMount() {
         toast(`New Todo added: ${this.props.todo}`);
@@ -21,7 +18,7 @@ class TodoItem extends React.Component {
     render() {
         return (
             <li>
-                <p> {this.props.todo} <button onClick={this.props.delete}>Delete</button></p>
+                <p> {this.props.todo} <button onClick={this.props.handleDelete}>Delete</button></p>
             </li>
         )
     }

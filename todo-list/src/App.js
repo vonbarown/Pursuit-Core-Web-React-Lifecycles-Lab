@@ -19,8 +19,8 @@ class App extends Component {
 
     this.handleSubmit = (e) => {
       e.preventDefault();
-      const { list,todoItem} = this.state;
-      const newItem =  {todoItem};
+      const { list, todoItem } = this.state;
+      const newItem = { todoItem };
       this.setState({
         list: [...list, newItem],
       });
@@ -34,9 +34,19 @@ class App extends Component {
     };
 
     this.handleDelete = e => {
+      let arr = [];
+      for (let i of this.state.list) {
       
-    }
+        arr.push(i);
+      }
 
+      for (let i = 0; i < arr.length; i++) {
+          arr.splice(i, 1)
+      }
+      this.setState({
+        list: arr
+      })
+    }
   }
 
   
@@ -49,7 +59,8 @@ class App extends Component {
       return (
         <TodoItem
           key={el.todoItem}
-          todo = {el.todoItem}
+          todo={el.todoItem}
+          handleDelete ={this.handleDelete}
         />
       );
     });
