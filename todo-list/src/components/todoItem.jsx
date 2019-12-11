@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import { toast } from 'react-toastify';
+
 
 class TodoItem extends React.Component {
     constructor(props) {
@@ -6,6 +8,14 @@ class TodoItem extends React.Component {
 
         console.log('constructor hit');
 
+
+
+    }
+    componentDidMount() {
+        toast(`New Todo added: ${this.props.todo}`);
+    }
+    componentWillUnmount() {
+        toast(`New Todo delete ${this.props.todo}`);
     }
 
     render() {

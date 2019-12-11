@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import './App.css';
@@ -24,10 +24,8 @@ class App extends Component {
       this.setState({
         list: [...list, newItem],
       });
-      this.notify()
     };
-    
-    this.notify = () => toast("New Todo added");
+  
 
     this.handleNewTodo = e => {
       this.setState({
@@ -35,10 +33,12 @@ class App extends Component {
       })
     };
 
+    this.handleDelete = e => {
+      
+    }
+
   }
 
-
-  
   
   render() {
     console.log(this.state);
@@ -56,7 +56,6 @@ class App extends Component {
     
     return (
       <div className="App">
-        <button onClick={this.notify}>Notify !</button>
         <ToastContainer />
 
 
