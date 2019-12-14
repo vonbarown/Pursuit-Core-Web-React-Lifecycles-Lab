@@ -14,18 +14,20 @@ class App extends Component {
 
     this.state = {
       list: [],
-      todoItem: ''
+      todoItem: '',
+      counter: 0
     }
 
     this.handleSubmit = (e) => {
       e.preventDefault();
-      const { list, todoItem } = this.state;
-      const newItem = { todoItem };
+      let { list, todoItem, counter } = this.state;
+      const newItem = { todoItem, counter };
       this.setState({
         list: [...list, newItem],
+        counter: counter + 1
       });
     };
-  
+
 
     this.handleNewTodo = e => {
       this.setState({
@@ -36,12 +38,15 @@ class App extends Component {
     this.handleDelete = e => {
       let arr = [];
       for (let i of this.state.list) {
-      
+
         arr.push(i);
       }
+      console.log(e.target.parentNode.parentNode.value);
 
       for (let i = 0; i < arr.length; i++) {
+        if (arr[i].counter === e.target.parentNode.parentNode.value) {
           arr.splice(i, 1)
+        }
       }
       this.setState({
         list: arr
@@ -49,22 +54,23 @@ class App extends Component {
     }
   }
 
-  
+
   render() {
     console.log(this.state);
 
-    const {list} =this.state
+    const { list } = this.state
 
     const listItems = list.map(el => {
       return (
         <TodoItem
-          key={el.todoItem}
+          key={el.counter}
+          counter={el.counter}
           todo={el.todoItem}
-          handleDelete ={this.handleDelete}
+          handleDelete={this.handleDelete}
         />
       );
     });
-    
+
     return (
       <div className="App">
         <ToastContainer />
@@ -73,13 +79,13 @@ class App extends Component {
         <h3>Todo List</h3>
         <TodoForm
           handleSubmit={this.handleSubmit}
-          handleNewTodo = {this.handleNewTodo}
+          handleNewTodo={this.handleNewTodo}
         />
 
         <TodoList
-         listItems = {listItems}
+          listItems={listItems}
         />
-        
+
       </div>
     );
   }
