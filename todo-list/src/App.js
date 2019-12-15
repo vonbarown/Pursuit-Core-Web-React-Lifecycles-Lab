@@ -36,18 +36,11 @@ class App extends Component {
     };
 
     this.handleDelete = e => {
-      let arr = [];
-      for (let i of this.state.list) {
-
-        arr.push(i);
-      }
+      let arr = this.state.list
       console.log(e.target.parentNode.parentNode.value);
 
-      for (let i = 0; i < arr.length; i++) {
-        if (arr[i].counter === e.target.parentNode.parentNode.value) {
-          arr.splice(i, 1)
-        }
-      }
+      arr = arr.filter(el => el.counter !== Number(e.target.parentNode.parentNode.value))
+
       this.setState({
         list: arr
       })

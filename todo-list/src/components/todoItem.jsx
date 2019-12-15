@@ -9,10 +9,10 @@ class TodoItem extends React.Component {
         console.log('constructor hit');
     }
     componentDidMount() {
-        toast(`New Todo added: ${this.props.todo}`);
+        toast.success(`New Todo added: ${this.props.todo}`);
     }
     componentWillUnmount() {
-        toast(`New Todo delete ${this.props.todo}`);
+        toast.error(`New Todo delete ${this.props.todo}`);
     }
 
     render() {
