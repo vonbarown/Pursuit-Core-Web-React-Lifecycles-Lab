@@ -37,12 +37,9 @@ class App extends Component {
 
     this.handleDelete = e => {
       let arr = this.state.list
-      console.log(e.target.parentNode.parentNode.value);
-
-      arr = arr.filter(el => el.counter !== Number(e.target.parentNode.parentNode.value))
 
       this.setState({
-        list: arr
+        list: arr.filter(el => el.counter !== Number(e.target.value))
       })
     }
   }
